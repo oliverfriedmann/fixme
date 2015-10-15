@@ -1,0 +1,23 @@
+{
+	"name": "fixme",
+	"description": "Assisting you in fixing broken commands in the command line.",
+	"version": "0.0.1",
+	"author": "Oliver Friedmann",
+	"repository": "oliverfriedmann/fixme",
+	"license": "MIT",
+    "engines": {
+	    "node": ""
+ 	},
+    "bin": {
+	    "fixme": "bin/fixme"
+	},
+	"preferGlobal": true,
+	"dependencies": {
+		"cli-color": "",
+		"indent-string": ""
+	},
+	"files": [
+	  "fixme.js",
+	  "db"
+    ]
+}
