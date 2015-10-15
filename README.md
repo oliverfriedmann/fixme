@@ -5,7 +5,7 @@
 Install this globally and you'll have access to the `fixme` command anywhere on your system.
 
 ```shell
-npm install -g fixme
+npm install -g fixme-cli
 ```
 
 ## Fixing broken comands using `fixme`
