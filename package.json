@@ -1,7 +1,7 @@
 {
 	"name": "fixme-cli",
 	"description": "Assisting you in fixing broken commands in the command line.",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"author": "Oliver Friedmann",
 	"repository": "oliverfriedmann/fixme",
 	"license": "MIT",
