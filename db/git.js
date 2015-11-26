@@ -30,4 +30,22 @@ module.exports = [{
 		return descriptor.command.indexOf("git pull") >= 0 && descriptor.stderr.indexOf("The following untracked working tree files would be overwritten by merge") >= 0; 
 	}
 	
+}, {
+	
+	"title": "Reattach Head",
+	"description": "You want to commit, but you're decapitated.",
+	"commands": function (descriptor) {
+		return [
+	    	"git checkout -b DETACHED_HEAD",
+	    	"git add .",
+	    	descriptor.command,
+	    	"git checkout master",
+	    	"git merge DETACHED_HEAD",
+	    	"git branch -d DETACHED_HEAD",
+		];
+	},
+	"applies": function (descriptor) {
+		return descriptor.command.indexOf("git commit") >= 0 && descriptor.stdout.indexOf("HEAD detached from") >= 0; 
+	}
+	
 }];

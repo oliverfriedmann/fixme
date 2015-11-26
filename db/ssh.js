@@ -3,13 +3,11 @@ module.exports = [{
 	"title": "Remove old host",
 	"description": "We need to remove the old host.",
 	"commands": function (descriptor) {
-		var s = "Offending RSA key in ";
-		var i = descriptor.stderr.indexOf(s) + s.length;
-		var t = descriptor.stderr.substr(i).split("\n");
-		t = t[0].split(":");
+		var regex = /Offending [\w]+ key in (.+):(\d+)/g;
+		var match = regex.exec(descriptor.stderr);
 		return [
-		    "mv " + t[0] + " " + t[0] + ".bak",
-		    "sed -e \"" + t[1].trim() + "d\" " + t[0] + ".bak > " + t[0],
+		    "mv " + match[1] + " " + match[1] + ".bak",
+		    "sed -e \"" + match[2].trim() + "d\" " + match[1] + ".bak > " + match[1],
 		    descriptor.command
 		];
 	},
