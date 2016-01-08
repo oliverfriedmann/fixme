@@ -12,7 +12,7 @@ module.exports = [{
 		];
 	},
 	"applies": function (descriptor) {
-		return descriptor.command.indexOf("ssh") >= 0 && descriptor.stderr.indexOf("WARNING: POSSIBLE DNS SPOOFING DETECTED!") >= 0; 
+		return descriptor.command.indexOf("ssh") >= 0 && descriptor.stderr.indexOf("IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!") >= 0; 
 	}
 	
 }];

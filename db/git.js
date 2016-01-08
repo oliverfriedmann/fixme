@@ -41,11 +41,27 @@ module.exports = [{
 	    	descriptor.command,
 	    	"git checkout master",
 	    	"git merge DETACHED_HEAD",
-	    	"git branch -d DETACHED_HEAD",
+	    	"git branch -d DETACHED_HEAD"
 		];
 	},
 	"applies": function (descriptor) {
 		return descriptor.command.indexOf("git commit") >= 0 && descriptor.stdout.indexOf("HEAD detached from") >= 0; 
 	}
+	
+}, {
+
+	"title": "Remove Submodule",
+	"description": "You want to remove a submodule.",
+	"commands": function (descriptor) {
+		var submodule = descriptor.command.substring("git submodule rm ".length);
+		return [
+	    	"git submodule deinit -f " + submodule,
+	    	"git rm -r -f " + submodule,
+	    	"git rm --cached " + submodule
+		];
+	},
+	"applies": function (descriptor) {
+		return descriptor.command.indexOf("git submodule rm") >= 0; 
+	}	
 	
 }];
