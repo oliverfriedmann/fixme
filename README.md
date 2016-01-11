@@ -68,7 +68,7 @@ Have a look at the `db` subfolder. It mostly revolves around:
 
 ## Adding fix recipes
 
-Simply add them to the `db` subfolder. If you think your fixes might be beneficial for the rest of us, please add a pull request.
+Simply add them to the `db` subfolder. If you think your fixes might be beneficial to the rest of us, please add a pull request.
 
 
 ## TODOs
