@@ -64,6 +64,8 @@ var fixQuery = function (descriptor) {
 
 
 var fixCommand = function (command) {
+	console.log("");
+	console.log("-------------------- Running --------------------");
 	child_process.exec(command, {}, function (error, stdout, stderr) {
 		process.stdout.write(stdout);
 		process.stderr.write(stderr);
@@ -74,11 +76,13 @@ var fixCommand = function (command) {
 			stderr: stderr
 		};
 		var fixResult = fixQuery(descriptor);
-		console.log("\n");
+		console.log("");
+		console.log("-------------------- Fixing --------------------");
 		if (fixResult.length > 0) {
 			console.log(cli_color.green("We have found " + (fixResult.length > 1 ? fixResult.length + " fixes" : "a fix") + ":"), "\n");
+			console.log("----");
 			fixResult.forEach(function (fix, fixIdx) {
-				console.log(cli_color.green("Fix") + " " + (fixResult.length > 1 ? cli_color.blue("[" + (fixIdx + 1) + "] ") : " ") + ": " + fix.title);
+				console.log(cli_color.green("Fix") + " " + (fixResult.length > 1 ? cli_color.blue("[" + (fixIdx + 1) + "] ") : "") + ": " + fix.title);
 				console.log("");
 				console.log(indentString(fix.description, " ", 6));
 				var commands = fixCommands(descriptor, fix);
@@ -86,8 +90,9 @@ var fixCommand = function (command) {
 					console.log("");
 					console.log(cli_color.blue(indentString(commands.join("\n"), " ", 6)));
 				}
-				console.log("\n");
+				console.log("----");
 			});
+			console.log("");
 			if (fixResult.length === 1) {
 				prompt("Do you want to apply the fix? [Y] or return : ", function (answer) {
 					answer = answer.toLowerCase();
@@ -108,6 +113,7 @@ var fixCommand = function (command) {
 			}
 		} else {
 			console.log(cli_color.yellow("(No fixes found or required.)"));
+			console.log("");
 			prompt("Do you want to google it? [Y] or return : ", function (answer) {
 				answer = answer.toLowerCase();
 				if (answer === "y")
