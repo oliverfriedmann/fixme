@@ -11,6 +11,17 @@ module.exports = [{
 	}
 	
 }, {
+
+	"title": "Git Push Origin Master",
+	"description": "You forgot to specify origin master.",
+	"commands": ["git push origin master"],
+	"applies": function (descriptor) {
+		return descriptor.command === "git push" && (
+			descriptor.stderr.indexOf("The current branch master has no upstream branch.") >= 0
+		);
+	}
+
+}, {
 	
 	"title": "Git Status Detached Head",
 	"description": "Something went wrong with this head, but we can get it back.",

@@ -41,7 +41,7 @@ module.exports = [{
 	"title": "Grunt missing module",
 	"description": "You forgot to npm install it.",
 	"commands": function (descriptor) {
-		var regex = /Error: Cannot find module '(.+)'/g;
+		var regex = /Error: Cannot find module '([^\/]+)['\/]/g;
 		var match = regex.exec(descriptor.stdout);
 		return ["npm install " + match[1], descriptor.command];
 	},
@@ -56,7 +56,7 @@ module.exports = [{
 	"title": "Grunt missing module",
 	"description": "You forgot to npm link it.",
 	"commands": function (descriptor) {
-		var regex = /Error: Cannot find module '(.+)'/g;
+		var regex = /Error: Cannot find module '([^\/]+)['\/]/g;
 		var match = regex.exec(descriptor.stdout);
 		return ["npm link " + match[1], descriptor.command];
 	},

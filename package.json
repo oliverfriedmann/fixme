@@ -1,7 +1,7 @@
 {
 	"name": "fixme-cli",
 	"description": "Assisting you in fixing broken commands in the command line.",
-	"version": "0.0.13",
+	"version": "0.0.15",
 	"author": "Oliver Friedmann",
 	"repository": "oliverfriedmann/fixme",
 	"license": "MIT",
@@ -19,6 +19,6 @@
 	"files": [
 	  "fixme.js",
 	  "db",
-"bin"
+		"bin"
     ]
 }
